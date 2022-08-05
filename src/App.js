@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import Headbar from "./components/Headbar/Headbar";
+import Herosection from "./components/Herosection/Herosection";
+import LinkNav from "./components/LinksNav/LinkNav";
+import MyService from "./components/MyService/MyService";
+import Navbar from "./components/Navbar/Navbar";
+
+import { animateScroll as scroll } from 'react-scroll';
+
 
 function App() {
+
+  const toggleHome = () =>{
+    scroll.scrollToTop();
+  }
+
+  const [openMenu,setOpenMenu] = useState(false)
+
+  const handleOpen = () =>{
+    setOpenMenu(!openMenu)
+    console.log(openMenu);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <LinkNav openMenu={openMenu} handleOpen={handleOpen} toggleHome={toggleHome}/>
+      <Headbar/>
+      <Navbar handleOpen={handleOpen} toggleHome={toggleHome}/>
+      <Herosection/>
+      <About/>
+      <MyService/>
+      <Contact/>
+      <Footer/>
     </div>
   );
 }
