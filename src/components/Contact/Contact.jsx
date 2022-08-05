@@ -52,7 +52,6 @@ const Contact = () => {
                     <Icon><AiOutlinePhone/></Icon>
                     <Text>เบอร์โทร</Text>
                     <DescContainer>
-                        <Description>02-969-0671</Description>
                         <Description>083-263-5597 (ช่างอ้วน) </Description>
                         <Description>096-879-4835 (คุณโอ๋)</Description>
                     </DescContainer>
